@@ -1,0 +1,11 @@
+Testes Automatizados
+
+1 - Testes Unitários - TDD, nunca faz acesso a banco de dados nem a api's externas
+
+2 - Testes de integração - Testa a funcionalidade completa da aplicação
+-> request -> routes -> controller -> repositorio
+<- repository <- controller <- response
+
+3 - Ponta a Ponta(E2E) - Testa toda a utilizacao de um usuário, mais utilizado no Front-end
+
+
