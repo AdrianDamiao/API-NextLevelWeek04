@@ -1,4 +1,5 @@
 import request from 'supertest';
+import { getConnection } from 'typeorm';
 import { app } from '../app';
 import createConnection from '../database';
 
@@ -7,6 +8,15 @@ describe("Surveys", () => {
         const connection = await createConnection();
         await connection.runMigrations();
     });
+
+    afterAll(async () => {
+        const connection = getConnection();
+        await connection.dropDatabase();
+        await connection.close();
+    }); // Para nao ter que colocar no package.json para remover o banco de teste
+    //Solucao muito boa para windows
+
+
 
     it("Should be able to create a new survey", async () => {
         const response = await request(app).post("/surveys")
